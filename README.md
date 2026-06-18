@@ -24,9 +24,13 @@ agent_resources/
 
 > Symlinks on Windows: enable **Developer Mode** (Settings → For developers) or run Git Bash **as Administrator** — otherwise `ln -s` may fail or create copies instead.
 
-## Quick start
+## Workflow
 
-Clone the repo (anywhere you like), then run `setup.sh` from inside it:
+This repo follows a three-step flow for every new project:
+
+### 1. One-time: clone & install skills
+
+Clone the repo anywhere, then run `setup.sh --skills` once per machine:
 
 ```bash
 git clone https://github.com/FerdinandNathaniel/agent_resources.git
@@ -34,25 +38,26 @@ cd agent_resources
 ./setup.sh --skills
 ```
 
-The script auto-detects where it lives — it works the same whether cloned to `~/.config/agent_resources/`, `~/dotfiles/agent_resources/`, or anywhere else.
+This symlinks all skills into `~/.copilot/skills/` (VS Code), `~/.config/opencode/skills/` (OpenCode), `~/.claude/skills/` (Claude Code), and `~/.hermes/skills/` (Hermes Agent) — wherever you have those tools installed. The script auto-detects its location, so the repo can live anywhere.
 
-### Install skills globally
+### 2. Per-project: init templates
 
-```bash
-cd agent_resources
-./setup.sh --skills
-```
-
-Symlinks skills into `~/.copilot/skills/` (VS Code), `~/.config/opencode/skills/` (OpenCode), `~/.claude/skills/` (Claude Code), and `~/.hermes/skills/` (Hermes Agent) — wherever you have those tools installed.
-
-### Init a new project
+When starting a new project, copy in the context templates:
 
 ```bash
-cd my-project
+cd my-new-project
 /path/to/agent_resources/setup.sh --init
 ```
 
-Copies AGENTS.md, copilot-instructions.md, and CONTEXT.md templates into your project.
+This creates `AGENTS.md` and `CONTEXT.md` in the project root, plus `.github/copilot-instructions.md`. These are starting points — edit them to describe your project.
+
+### 3. Per-session: grill with docs
+
+Open your agent in the project and invoke the skill:
+
+> **`/grill-with-docs`**
+
+The agent will interview you relentlessly about your plan or design — one question at a time — while simultaneously building your project's `CONTEXT.md` glossary and creating ADRs in `docs/adr/` for hard-to-reverse decisions. The result: a shared language between you and the agent, documented decisions, and far less verbose conversations going forward.
 
 ### All commands
 
