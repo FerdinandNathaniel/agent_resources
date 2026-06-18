@@ -43,7 +43,7 @@ cd agent_resources
 ./setup.sh --skills
 ```
 
-Symlinks skills into `~/.copilot/skills/`, `~/.config/opencode/skills/`, and `~/.claude/skills/` — wherever you have those tools installed.
+Symlinks skills into `~/.copilot/skills/` (VS Code), `~/.config/opencode/skills/` (OpenCode), `~/.claude/skills/` (Claude Code), and `~/.hermes/skills/` (Hermes Agent) — wherever you have those tools installed.
 
 ### Init a new project
 

@@ -8,6 +8,7 @@ TARGETS=()
 has_vscode()  { [ -d "$HOME/.copilot" ]; }
 has_opencode(){ [ -d "$HOME/.config/opencode" ]; }
 has_claude()  { [ -d "$HOME/.claude" ]; }
+has_hermes()  { [ -d "$HOME/.hermes" ]; }
 
 # ── Flags ───────────────────────────────────────────────────────
 DO_SKILLS=false
@@ -53,7 +54,7 @@ install_skills() {
     return
   fi
 
-  for target_dir in "$HOME/.copilot/skills" "$HOME/.config/opencode/skills" "$HOME/.claude/skills"; do
+  for target_dir in "$HOME/.copilot/skills" "$HOME/.config/opencode/skills" "$HOME/.claude/skills" "$HOME/.hermes/skills"; do
     if [ -d "$(dirname "$target_dir")" ]; then
       mkdir -p "$target_dir"
       echo "  → $target_dir"
