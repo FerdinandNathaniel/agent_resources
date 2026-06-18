@@ -26,33 +26,44 @@ agent_resources/
 
 ## Quick start
 
+Clone the repo (anywhere you like), then run `setup.sh` from inside it:
+
+```bash
+git clone https://github.com/FerdinandNathaniel/agent_resources.git
+cd agent_resources
+./setup.sh --skills
+```
+
+The script auto-detects where it lives — it works the same whether cloned to `~/.config/agent_resources/`, `~/dotfiles/agent_resources/`, or anywhere else.
+
 ### Install skills globally
 
-| Platform | Command |
-|---|---|
-| macOS / Linux | `~/.config/agent_resources/setup.sh --skills` |
-| Windows (Git Bash) | `~/.config/agent_resources/setup.sh --skills` |
-| Windows (WSL) | `$HOME/.config/agent_resources/setup.sh --skills` |
+```bash
+cd agent_resources
+./setup.sh --skills
+```
 
-This symlinks all skills into `~/.copilot/skills/`, `~/.config/opencode/skills/`, and `~/.claude/skills/` — wherever you have those tools installed.
+Symlinks skills into `~/.copilot/skills/`, `~/.config/opencode/skills/`, and `~/.claude/skills/` — wherever you have those tools installed.
 
 ### Init a new project
 
-| Platform | Command |
-|---|---|
-| All | `cd my-project && ~/.config/agent_resources/setup.sh --init` |
+```bash
+cd my-project
+/path/to/agent_resources/setup.sh --init
+```
 
 Copies AGENTS.md, copilot-instructions.md, and CONTEXT.md templates into your project.
 
 ### All commands
 
 ```bash
-setup.sh --all       # Install everything (skills + agents + prompts)
-setup.sh --skills    # Symlink skills only
-setup.sh --agents    # Symlink custom agents only
-setup.sh --prompts   # Copy prompts into current project
-setup.sh --init      # Copy template files into current project
-setup.sh --help      # Show usage
+cd agent_resources
+./setup.sh --all       # Install everything (skills + agents + prompts)
+./setup.sh --skills    # Symlink skills only
+./setup.sh --agents    # Symlink custom agents only
+./setup.sh --prompts   # Copy prompts into current project
+./setup.sh --init      # Copy template files into current project
+./setup.sh --help      # Show usage
 ```
 
 ## Skills included
